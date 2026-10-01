@@ -1,0 +1,16 @@
+hk_camera_node:
+  ros__parameters:
+    camera_ip: ""               # USB camera: MUST remain empty
+    serial_number: ""           # Fill from MVS; empty selects first then pins serial
+    image_topic: "/image_raw"
+    frame_id: "camera_optical_frame"
+    exposure_time: 5000.0        # microseconds; tune illumination as needed
+    gain: 10.0
+    frame_rate: 30.0            # 0.0 disables hardware frame-rate limit if supported
+    pixel_format: "BayerRG8"    # checked against actual camera capabilities
+    output_encoding: "bgr8"     # color preview; native avoids demosaicing for profiling
+    qos_reliability: "best_effort"
+    grab_timeout_ms: 100
+    reconnect_timeout_sec: 3.0
+    opencv_threads: 1
+    benchmark_mode: "publish"  # capture_only measures SDK without image publication
